@@ -1,32 +1,36 @@
-import sorts.ShellSort;
+import edu.princeton.cs.algs4.In;
+import edu.princeton.cs.algs4.StdDraw;
+import edu.princeton.cs.algs4.StdOut;
 
 public class Main {
 
-    public static void main(String[] args) {
-        // write your code here
+    public static void Main(String[] args) {
+        // read the n points from a file
+        In in = new In(args[0]);
+        int n = in.readInt();
+        Point[] points = new Point[n];
+        for (int i = 0; i < n; i++) {
+            int x = in.readInt();
+            int y = in.readInt();
+            points[i] = new Point(x, y);
+        }
 
-        Point p = new Point(1, 8);
-        Point q = new Point(8, 4);
-        Point r = new Point(8, 1);
+        // draw the points
+        StdDraw.enableDoubleBuffering();
+        StdDraw.setXscale(0, 32768);
+        StdDraw.setYscale(0, 32768);
+        for (Point p : points) {
+            p.draw();
+        }
+        StdDraw.show();
 
-        Integer array [] = {2, 1 ,1, 1, 4, 2, 512,7,1,10, 90};
-//        System.out.println("===============RESULT 1 =================");
-//        SelectionSort<Integer> selectionSort = new SelectionSort<>(array);
-//        selectionSort.sort();
-//        selectionSort.print();
-//
-//        array = new Integer[]{2, 1, 1, 1, 4, 2, 512, 7, 1, 10, 90};
-//        System.out.println("===============RESULT 2 =================");
-//        InsertionSort<Integer> insertionSort = new InsertionSort<>(array);
-//        insertionSort.sort();
-//        insertionSort.print();
-
-
-        array = new Integer[]{2, 1, 1, 1, 4, 2, 512, 7, 1, 10, 90};
-        System.out.println("===============RESULT 2 =================");
-        ShellSort<Integer> shellSort = new ShellSort<>(array);
-        shellSort.sort();
-        shellSort.print();
+        // print and draw the line segments
+        BruteCollinearPoints collinear = new BruteCollinearPoints(points);
+        for (LineSegment segment : collinear.segments()) {
+            StdOut.println(segment);
+            segment.draw();
+        }
+        StdDraw.show();
 
     }
 }

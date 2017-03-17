@@ -8,9 +8,7 @@
  *
  ******************************************************************************/
 
-import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdDraw;
-import edu.princeton.cs.algs4.StdOut;
 
 import java.util.Comparator;
 
@@ -62,9 +60,9 @@ public class Point implements Comparable<Point> {
      * @return the slope between this point and the specified point
      */
     public double slopeTo(Point that) {
-        if(this.x == that.x)
+        if (this.x == that.x)
             return this.y == that.y ? Double.NEGATIVE_INFINITY : Double.POSITIVE_INFINITY;
-        if(this.y == that.y) return 0.0;
+        if (this.y == that.y) return 0.0;
 
         return (double) (that.y - this.y) / (double) (that.x - this.x);
     }
@@ -101,7 +99,7 @@ public class Point implements Comparable<Point> {
         return new Comparator<Point>() {
             @Override
             public int compare(Point o1, Point o2) {
-                if(o1 == null || o2 == null) throw new NullPointerException();
+                if (o1 == null || o2 == null) throw new NullPointerException();
                 return slopeTo(o1) < slopeTo(o2) ? -1
                         : slopeTo(o1) > slopeTo(o2) ? 1 : 0;
             }
@@ -120,60 +118,4 @@ public class Point implements Comparable<Point> {
         /* DO NOT MODIFY */
         return "(" + x + ", " + y + ")";
     }
-
-    /**
-     * Unit tests the Point data type.
-     */
-    public static void main(String[] args) {
-        /* YOUR CODE HERE */
-        In in = new In(args[0]);
-        int n = in.readInt();
-        Point[] points = new Point[n];
-        for (int i = 0; i < n; i++) {
-            int x = in.readInt();
-            int y = in.readInt();
-            points[i] = new Point(x, y);
-        }
-
-        // draw the points
-        StdDraw.enableDoubleBuffering();
-        StdDraw.setXscale(0, 32768);
-        StdDraw.setYscale(0, 32768);
-        for (Point p : points) {
-            p.draw();
-        }
-        StdDraw.show();
-
-        // print and draw the line segments
-        BruteCollinearPoints collinear = new BruteCollinearPoints(points);
-        for (LineSegment segment : collinear.segments()) {
-            StdOut.println(segment);
-            segment.draw();
-        }
-        StdDraw.show();
-//        List<Point> pointList = new ArrayList<>();
-//        for (int i = 0; i < 13; i++) {
-//            int randomX = StdRandom.uniform(1, 20);
-//            int randomY = StdRandom.uniform(1, 20);
-//            pointList.add(new Point(randomX, randomY));
-//        }
-//
-////        print(pointList);
-//        System.out.println("=====================");
-//        Point p1 = new Point(1, 3);
-//        Point p2 = new Point(2, 3);
-//        System.out.println(p1.toString());
-//        System.out.println(p2.toString());
-//        System.out.println(p1.compareTo(p2));
-
-
-    }
-//
-//    private static void print(List<Point> pointList) {
-//        for (Point point : pointList) {
-//            System.out.println(point.toString());
-//            System.out.println("=====================");
-//            System.out.println(point.toString());
-//        }
-//    }
 }
