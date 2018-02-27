@@ -1,3 +1,5 @@
+package Assignment3_CollinearPoints;
+
 /*************************************************************************
  *  Compilation:  javac LineSegment.java
  *  Execution:    none

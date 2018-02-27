@@ -1,37 +1,27 @@
-import edu.princeton.cs.algs4.In;
-import edu.princeton.cs.algs4.StdDraw;
+
+
+import PriorityQueueExercise.MaxPQ;
+import edu.princeton.cs.algs4.Heap;
 import edu.princeton.cs.algs4.StdOut;
+import sorts.HeapSort;
+
+import java.util.*;
 
 public class Main {
 
-    public static void Main(String[] args) {
-        // read the n points from a file
-        In in = new In(args[0]);
-        int n = in.readInt();
-        Point[] points = new Point[n];
-        for (int i = 0; i < n; i++) {
-            int x = in.readInt();
-            int y = in.readInt();
-            points[i] = new Point(x, y);
+    // print array to standard output
+    private static void show(Comparable[] a) {
+        for (int i = 0; i < a.length; i++) {
+            StdOut.println(a[i]);
         }
+    }
 
-        // draw the points
-        StdDraw.enableDoubleBuffering();
-        StdDraw.setXscale(0, 32768);
-        StdDraw.setYscale(0, 32768);
-        for (Point p : points) {
-            p.draw();
-        }
-        StdDraw.show();
+    public static void main(String[] args) {
 
-        // print and draw the line segments
-        BruteCollinearPoints collinear = new BruteCollinearPoints(points);
-        for (LineSegment segment : collinear.segments()) {
-            StdOut.println(segment);
-            segment.draw();
-        }
-        StdDraw.show();
 
+        Comparable[] array = new Comparable[]{2, 12, 2323, 22, 33, 44, 1};
+        HeapSort.sort(array);
+        show(array);
     }
 }
 

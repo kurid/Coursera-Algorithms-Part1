@@ -1,3 +1,4 @@
+package Assignment3_CollinearPoints;
 /******************************************************************************
  *  Compilation:  javac Point.java
  *  Execution:    java Point

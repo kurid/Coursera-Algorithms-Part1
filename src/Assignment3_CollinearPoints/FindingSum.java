@@ -1,3 +1,5 @@
+package Assignment3_CollinearPoints;
+
 public class FindingSum {
 
 

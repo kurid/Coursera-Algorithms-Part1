@@ -8,7 +8,7 @@ abstract class Sort<Item> {
         this.unsortedArray = unsortedArray;
     }
 
-    public   abstract Comparable<Item>[] sort();
+    public  abstract Comparable<Item>[] sort();
 
 
     public void print() {
