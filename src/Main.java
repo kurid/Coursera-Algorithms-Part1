@@ -17,8 +17,6 @@ public class Main {
     }
 
     public static void main(String[] args) {
-
-
         Comparable[] array = new Comparable[]{2, 12, 2323, 22, 33, 44, 1};
         HeapSort.sort(array);
         show(array);

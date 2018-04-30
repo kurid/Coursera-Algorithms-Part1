@@ -34,10 +34,10 @@ public class PuzzleChecker {
 
     public static void main(String[] args) {
 
-        File testFolder = new File("./8puzzle/puzzle11.txt");
+        File testFolder = new File("./8puzzle/puzzle27.txt");
 //        File[] listOfTestFiles = testFolder.listFiles();
 //        int numberOfTestFiles = Objects.requireNonNull(listOfTestFiles).length;
-//        numberOfTestFiles = 1;
+//        numberOfTestFiles = 1;<
         runTest(testFolder);
 
 //        for (int i = 0; i < numberOfTestFiles; i++) {
@@ -54,23 +54,7 @@ public class PuzzleChecker {
                 blocks[i][j] = in.readInt();
         Board initial = new Board(blocks);
 
-//        System.out.println(initial);
-//        System.out.println("=========INITIAL===================\n");
-
-//        System.out.println(initial.twin());
-//
-//        Iterator<Board> iterator = initial.neighbors().iterator();
-//        while (iterator.hasNext()) {
-//            Board board = iterator.next();
-//            Iterator<Board> iterator2 = board.neighbors().iterator();
-//            System.out.println(board);
-//            System.out.println("________");
-//            while (iterator2.hasNext()) {
-//                System.out.println(iterator2.next());
-//            }
-//            System.out.println("============================\n");
-//        }
-//    }
+        System.out.println(initial.manhattan());
 
     // solve the puzzle
         Solver solver = new Solver(initial);
